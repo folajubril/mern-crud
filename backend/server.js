@@ -2,20 +2,20 @@ let express = require('express');
 let mongoose = require('mongoose');
 let cors = require('cors');
 let bodyParser = require('body-parser');
-let db = "mongodb+srv://folajubril:1stofakind@mycluster-4eqmw.mongodb.net/test?retryWrites=true&w=majority";
+let uri = "mongodb://localhost:27017/studentDb";
 // Express Route
 const studentRoute = require('./routes/student.route');
 
 // Connecting mongoDB Database
-mongoose.connect(db, {
-  // useUnifiedTopology: true,
+mongoose.connect(uri, {
+  useUnifiedTopology: true,
   useNewUrlParser: true
   })
 .then(() => {
-  console.log('Database sucessfully connected!')
+  console.log('Database sucessfully connected!');
 })
 .catch(error => {
-  console.log('Could not connect to database : ' + error)
+  console.log('Could not connect to database : ' + error);
 });
 
 
